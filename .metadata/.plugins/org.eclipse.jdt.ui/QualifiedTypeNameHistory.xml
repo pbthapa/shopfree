@@ -46,4 +46,9 @@
 <fullyQualifiedTypeName name="javax.faces.bean.ManagedBean"/>
 <fullyQualifiedTypeName name="com.demo.shopfree.model.Employee"/>
 <fullyQualifiedTypeName name="com.demo.shopfree.service.IProductService"/>
+<fullyQualifiedTypeName name="javax.persistence.Entity"/>
+<fullyQualifiedTypeName name="javax.persistence.Table"/>
+<fullyQualifiedTypeName name="javax.persistence.Id"/>
+<fullyQualifiedTypeName name="javax.persistence.Column"/>
+<fullyQualifiedTypeName name="javax.persistence.SequenceGenerator"/>
 </qualifiedTypeNameHistroy>

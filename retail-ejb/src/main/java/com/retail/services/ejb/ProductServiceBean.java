@@ -13,25 +13,21 @@ public class ProductServiceBean implements ProductService {
 
 	}
 
-	@Override
 	public Object addProduct(Object obj) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public void deleteProduct(int id) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public Object updateProduct(Object obj) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Object getProductBySearchCriteria(Object obj) {
 		// TODO Auto-generated method stub
 		return null;
