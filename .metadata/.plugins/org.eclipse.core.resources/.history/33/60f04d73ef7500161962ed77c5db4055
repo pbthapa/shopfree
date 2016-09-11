@@ -1,0 +1,43 @@
+package com.demo.shopfree.controller;
+
+import java.util.Properties;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+import com.demo.ejbcore.HelloWorldBean;
+import com.demo.ejbcore.IHelloWorldRemote;
+
+public class EJBClientTest {
+
+	public static void main(String[] args) throws NamingException {
+		Properties prop = new Properties();
+	//	prop.put("jboss.naming.client.ejb.context", true);
+		prop.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
+		InitialContext context = new InitialContext(prop);
+		System.out.println("Context lookup finisehed");
+
+		IHelloWorldRemote remote = lookup(context);
+		remote.sayHello("Ramsy");
+	}
+
+	private static IHelloWorldRemote lookup(InitialContext context) {
+		final String appName = "";
+		final String moduleName = "ejb-core";
+		final String distinctName = "";
+		final String beanName = HelloWorldBean.class.getSimpleName();
+		final String viewClassName = IHelloWorldRemote.class.getName();
+		IHelloWorldRemote h = null;
+		try {
+			String hh = "ejb:" + appName + "/" + moduleName + "/" + distinctName + "/" + beanName + "!" + viewClassName;
+			System.out.println(hh);
+			h = (IHelloWorldRemote) context.lookup(hh);
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+		return h;
+
+	}
+
+}

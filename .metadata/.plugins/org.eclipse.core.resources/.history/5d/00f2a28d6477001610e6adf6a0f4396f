@@ -1,0 +1,36 @@
+/**
+ * 
+ */
+package com.demo.shopfree.controller;
+
+import java.io.IOException;
+
+import javax.annotation.ManagedBean;
+import javax.naming.NamingException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.demo.shopfree.service.IProductService;
+
+
+/**
+ * @author pushpathapa
+ *
+ */
+@Controller
+@ManagedBean
+public class AdminController {
+	
+	@Autowired
+	private IProductService productService;
+	
+	@RequestMapping("/welcome")
+	public ModelAndView helloWorld() throws NamingException, IOException {
+		
+		String message = productService.getHelloMessage("Pushpa");
+		return new ModelAndView("welcome", "message", message);
+	}
+}

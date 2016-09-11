@@ -1,0 +1,6 @@
+package com.retail.services;
+
+public interface ProductService {
+
+	public String doProcess(String value);
+}

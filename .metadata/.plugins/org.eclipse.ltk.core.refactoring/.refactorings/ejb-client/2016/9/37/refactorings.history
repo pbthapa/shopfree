@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;EJBClientTest.java&apos; to &apos;shopfree/src/com.demo.shopfree.controller&apos;&#x0A;- Original project: &apos;ejb-client&apos;&#x0A;- Destination element: &apos;shopfree/src/com.demo.shopfree.controller&apos;&#x0A;- Original element: &apos;com.demo.ejbtest.EJBClientTest.java&apos;" description="Copy compilation unit" destination="=shopfree/src&lt;com.demo.shopfree.controller" element1="/src&lt;com.demo.ejbtest{EJBClientTest.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1473358170954" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,39 @@
+package com.demo.shopfree.controller;
+
+import java.io.IOException;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+import com.demo.ejbcore.HelloWorldBean;
+import com.demo.ejbcore.IHelloWorldRemote;
+import com.retail.common.IBean;
+
+public class EJBClientTest {
+
+	public static void main(String[] args) throws NamingException, IOException {
+
+		EjbConfig config = new EjbConfig();
+		IBean helloWorld = (IBean) config.myBean();
+		helloWorld.doProcess("Pushpa");
+	}
+
+	private static IBean lookup(InitialContext context) {
+		final String appName = "";
+		final String moduleName = "retail-api";
+		final String distinctName = "";
+		final String beanName = ""; 
+		final String viewClassName = IHelloWorldRemote.class.getName();
+		IHelloWorldRemote h = null;
+		try {
+			String hh = "ejb:" + appName + "/" + moduleName + "/" + distinctName + "/" + beanName + "!" + viewClassName;
+			System.out.println(hh);
+			h = (IHelloWorldRemote) context.lookup(hh);
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+		return h;
+
+	}
+
+}

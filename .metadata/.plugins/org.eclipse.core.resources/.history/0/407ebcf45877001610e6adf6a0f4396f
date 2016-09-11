@@ -1,0 +1,46 @@
+package com.demo.shopfree.util;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+public class WebUtil {
+
+	private static final String PROPERTY_FILE = "/com/demo/shopfree/properties/jboss-ejb-client.properties";
+	private static final String EAR_EJB_PATH = "ejb:retail-ear/retail-ejb-0.0.1-SNAPSHOT/";
+	private static final String VIEW_CLASS_INTERFACE = "com.retail.services.remote.";
+
+	public static <E> E getBean(String jndi) {
+		Properties prop = new Properties();
+
+		// prop.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
+		// prop.put("endpoint.name", "client-endpoint");
+		// prop.put("remote.connectionprovider.create.options.org.xnio.Options.SSL_ENABLED",
+		// false);
+		// prop.put("remote.connections", "default");
+		// prop.put("remote.connection.default.host", "localhost");
+		// prop.put("remote.connection.default.port", "8080");
+		// prop.put("remote.connection.default.connect.options.org.xnio.Options.SASL_POLICY_NOANONYMOUS",
+		// false);
+		// prop.put("remote.connection.default.username", "ejb-client");
+		// prop.put("remote.connection.default.password", "UHdkMTIzNCs=");
+		// prop.put("org.jboss.ejb.client.scoped.context", true);
+		// prop.put("jboss.naming.client.ejb.context", true);
+
+		try {
+			InputStream inputStream = WebUtil.class.getResourceAsStream(PROPERTY_FILE);
+			prop.load(inputStream);
+			InitialContext context = new InitialContext(prop);
+			return (E) context.lookup(EAR_EJB_PATH + jndi);
+		} catch (IOException a) {
+			return null;
+		} catch (NamingException b) {
+			return null;
+		} finally {
+			System.out.println("No EJB proxy connection available");
+		}
+	}
+
+}

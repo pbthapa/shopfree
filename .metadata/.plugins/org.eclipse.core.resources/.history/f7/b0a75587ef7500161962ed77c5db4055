@@ -1,0 +1,16 @@
+package com.demo.shopfree.controller;
+
+import javax.naming.NamingException;
+
+import com.retail.common.IBean;
+
+public class EJBClientTest {
+
+	public static void main(String[] args) throws NamingException {
+
+		EjbConfig config = new EjbConfig();
+		IBean helloWorld = (IBean) config.myBean();
+		helloWorld.doProcess("Pushpa");
+	}
+
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="ProductService"
+		class="org.springframework.ejb.access.SimpleRemoteStatelessSessionProxyFactoryBean">
+		<property name="jndiName">
+			<value>ejb:retail-ear/retail-ejb-0.0.1-SNAPSHOT/ProductService</value>
+		</property>
+		<property name="businessInterface">
+			<value>com.retail.services.ProductService</value>
+		</property>
+		<property name="resourceRef">
+			<value>true</value>
+		</property>
+	</bean>
+</beans>

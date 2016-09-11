@@ -1,0 +1,15 @@
+package com.demo.shopfree.service.impl;
+
+import com.demo.shopfree.service.ProductService;
+import com.demo.shopfree.util.WebUtil;
+
+public class ProductServiceImpl implements ProductService{
+
+	ProductService productService = (ProductService) WebUtil.getBean("ProductService");
+
+	@Override
+	public String getHelloMessage(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

@@ -1,0 +1,16 @@
+package com.retail.commonimpl;
+
+import javax.ejb.Stateless;
+
+import com.retail.common.IBean;
+
+@Stateless
+public class Ejb implements IBean{
+
+	public void doProcess(String value) {
+		
+		System.out.println("Heello " + value + "!!!!!!");
+		
+	}
+
+}

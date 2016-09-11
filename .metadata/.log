@@ -1,0 +1,19 @@
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-09-11 09:58:07.216
+!MESSAGE Failed to initialize Git team provider.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Connecting Git team provider failed. See log for details.
+	at org.eclipse.egit.core.op.ConnectProviderOperation.execute(ConnectProviderOperation.java:103)
+	at org.eclipse.egit.ui.internal.sharing.SharingWizard$1.run(SharingWizard.java:125)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Contains: Error connecting project shopfree, no Git repositories found
+!SUBENTRY 1 org.eclipse.egit.core 4 0 2016-09-11 09:58:07.217
+!MESSAGE Connecting Git team provider failed. See log for details.
+!SUBENTRY 2 org.eclipse.egit.core 4 0 2016-09-11 09:58:07.217
+!MESSAGE Error connecting project shopfree, no Git repositories found
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2016-09-11 09:58:14.826
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2016-09-11 09:58:14.828
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!

@@ -1,0 +1,16 @@
+package com.retail.commonimpl;
+
+import javax.ejb.Stateless;
+
+import com.retail.services.remote.IBeanService;
+
+@Stateless
+public class Ejb implements IBeanService{
+
+	public String doProcess(String value) {
+		
+		return "Heello " + value + "!!!!!!";
+		
+	}
+
+}
