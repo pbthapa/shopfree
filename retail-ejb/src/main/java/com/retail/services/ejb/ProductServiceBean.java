@@ -1,15 +1,26 @@
 package com.retail.services.ejb;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import com.retail.services.remote.ProductService;
 
 @Stateless(name = "ProductService")
 public class ProductServiceBean implements ProductService {
+	
+//	@PersistenceContext(unitName = "retailPersistenceUnit")
+//	private static EntityManager em;
 
 	public String doProcess(String value) {
 
-		return "Heello " + value + "!!!!!!";
+//		Query query = em.createNativeQuery("select * from customer");
+//		List result = query.getResultList();
+//		System.out.println(result.get(0));
+		return "Heello " + value + "!!!!!!. Result from DB : ";
 
 	}
 
