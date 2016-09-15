@@ -7,6 +7,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -17,14 +19,15 @@ import javax.persistence.Table;
  */
 @Entity(name = "item")
 @Table(name = "item")
-@SequenceGenerator(name = " ItemSequence", sequenceName = "item_seq", initialValue = 100, allocationSize = 20)
+@SequenceGenerator(name = "ItemSequence", sequenceName = "item_seq", initialValue = 100, allocationSize = 20)
 public class Item implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ItemSequence")
 	@Column(name = "item_id")
-	private int itemId;
+	private Integer itemId;
 	@Column(name = "item_description", nullable = false)
 	private String itemDescription;
 	@Column(name = "unit_cost", scale = 2)
@@ -32,11 +35,11 @@ public class Item implements Serializable {
 	@Column(name = "currency_code")
 	private String currencyCode;
 
-	public int getItemId() {
+	public Integer getItemId() {
 		return itemId;
 	}
 
-	public void setItemId(int itemId) {
+	public void setItemId(Integer itemId) {
 		this.itemId = itemId;
 	}
 
