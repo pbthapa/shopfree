@@ -8,8 +8,8 @@ import javax.faces.bean.RequestScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.demo.shopfree.model.Employee;
 import com.demo.shopfree.service.IProductService;
+import com.retail.services.remote.dto.EmployeeDTO;
 
 /**
  * @author pushpathapa
@@ -21,7 +21,7 @@ public class AdminController {
 
 	@Autowired
 	private IProductService productService;
-	private Employee employee;
+	private EmployeeDTO employee;
 
 	// @RequestMapping("/welcome")
 	// public ModelAndView helloWorld() throws NamingException, IOException {
@@ -31,15 +31,15 @@ public class AdminController {
 	// }
 
 	public String register() {
-		employee = new Employee();
+		employee = new EmployeeDTO();
 		return null;
 	}
 
-	public Employee getEmployee() {
+	public EmployeeDTO getEmployee() {
 		return employee;
 	}
 
-	public void setEmployee(Employee employee) {
+	public void setEmployee(EmployeeDTO employee) {
 		this.employee = employee;
 	}
 }

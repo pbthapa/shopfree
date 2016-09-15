@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.demo.shopfree.model;
+package com.retail.services.remote.dto;
 
 import java.io.Serializable;
 
@@ -9,22 +9,22 @@ import java.io.Serializable;
  * @author pushpathapa
  *
  */
-public class Employee implements Serializable {
+public class EmployeeDTO implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int id;
+	private Integer id;
 	private String employeeName;
 	private java.util.Date employeeHireDate;
 	private Double employeeSalary;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
