@@ -4,8 +4,8 @@ import javax.ejb.Remote;
 import javax.ws.rs.core.Response;
 
 @Remote
-public interface PurchaseOrder {
+public interface PurchaseOrderService {
 	
-	public Response getItem(String id);
-
+	public Response findPurchaseOrderById(String id);
+	
 }
