@@ -1,5 +1,0 @@
-package com.retail.common;
-
-public interface IBean {
-
-}

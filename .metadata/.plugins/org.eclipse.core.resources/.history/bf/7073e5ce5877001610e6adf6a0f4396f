@@ -1,7 +1,0 @@
-package com.demo.shopfree.service;
-
-public interface ProductService {
-	
-	public String getHelloMessage(String name);
-
-}

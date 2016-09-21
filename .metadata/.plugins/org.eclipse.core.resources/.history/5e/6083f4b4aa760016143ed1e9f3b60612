@@ -1,9 +1,0 @@
-package com.retail.common;
-
-import javax.ejb.Remote;
-
-@Remote
-public interface IBean {
-
-	public void doProcess(String value);
-}
