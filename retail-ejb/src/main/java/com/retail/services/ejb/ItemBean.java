@@ -6,7 +6,7 @@ import javax.persistence.PersistenceContext;
 
 import com.retail.model.Item;
 
-@Stateless(name = "ProductService")
+@Stateless
 public class ItemBean {
 
 	@PersistenceContext(unitName = "retailPersistenceUnit")

@@ -4,8 +4,8 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-@Stateless(name = "EmployeeService")
-public class EmployeeServiceBean {
+@Stateless
+public class EmployeeBean {
 
 	@PersistenceContext(unitName = "retailPersistenceUnit")
 	private EntityManager em;

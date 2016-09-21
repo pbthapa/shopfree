@@ -10,7 +10,7 @@ public interface EmployeeService {
 
 	public String deleteEmployee(String id);
 
-	public Response updateProduct(String json);
+	public Response updateEmployee(String json);
 
 	public Response getEmployeeBySearchCriteria(String json);
 }

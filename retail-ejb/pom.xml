@@ -61,9 +61,11 @@
 			<version>9.4.1210</version>
 		</dependency>
 		<dependency>
-		    <groupId>ojb</groupId>
-		    <artifactId>xdoclet-ojb-module</artifactId>
-		    <version>1.2.1</version>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+			<type>jar</type>
 		</dependency>
 	</dependencies>
 

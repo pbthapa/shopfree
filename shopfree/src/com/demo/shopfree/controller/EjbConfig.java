@@ -9,14 +9,14 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import com.retail.services.remote.ProductService;
+import com.retail.services.remote.ItemService;
 
 public class EjbConfig {
 
 	private static final String JNDI_NAME = "ejb:retail-ear/retail-ejb-0.0.1-SNAPSHOT/ProductService!"
 			+ "com.retail.services.remote.ProductService";
 
-	public ProductService myBean() throws NamingException, IOException {			
+	public ItemService myBean() throws NamingException, IOException {			
 		Properties prop = new Properties();
 		prop.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
 		prop.put("endpoint.name","client-endpoint");
@@ -33,15 +33,15 @@ public class EjbConfig {
 		InitialContext context = new InitialContext(prop);
 		System.out.println("Context lookup finisehed");
 
-		ProductService remote = lookup(context);
+		ItemService remote = lookup(context);
 		//IHelloWorldRemote remote = createEjbProxy(context, JNDI_NAME, IBean.class);
 		return remote;
 	}
 	
-	private static ProductService lookup(InitialContext context) {
-		ProductService h = null;
+	private static ItemService lookup(InitialContext context) {
+		ItemService h = null;
 		try {
-			h = (ProductService) context.lookup(JNDI_NAME);
+			h = (ItemService) context.lookup(JNDI_NAME);
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
