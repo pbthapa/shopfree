@@ -1,8 +1,12 @@
 package com.retail.services.ejb;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import com.retail.model.Item;
 
@@ -26,5 +30,11 @@ public class ItemBean {
 	public Item findItemById(final Integer id) {
 		Item item = em.find(Item.class, id);
 		return item;
+	}
+
+	public List findAllItem() {
+		Query query = em.createQuery("FROM Item i");
+		List list = query.getResultList();
+		return list;
 	}
 }

@@ -16,6 +16,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * @author pushpathapa
  *
@@ -28,14 +30,18 @@ public class Item implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@JsonProperty("id")
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ItemSequence")
 	@Column(name = "item_id")
 	private Integer itemId;
+	@JsonProperty("item_desc")
 	@Column(name = "item_description", nullable = false)
 	private String itemDescription;
+	@JsonProperty("unit_cost")
 	@Column(name = "unit_cost", scale = 2)
 	private Double unitCost;
+	@JsonProperty("currency_code")
 	@Column(name = "currency_code")
 	private String currencyCode;
 

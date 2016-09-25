@@ -1,6 +1,7 @@
 package com.retail.services.endpoint;
 
 import java.io.StringReader;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.json.Json;
@@ -17,6 +18,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.retail.model.Item;
 import com.retail.services.ejb.ItemBean;
 import com.retail.services.remote.ItemService;
@@ -50,19 +53,22 @@ public class ItemServiceEndPoint implements ItemService {
 	}
 
 	/**
-	 * need to look after post web service, it is not checked
+	 * 
 	 */
 	@POST
+	@Path("/create")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response addItem(String json) {
-		JsonReader reader = Json.createReader(new StringReader(json));
-		JsonObject obj = reader.readObject();
-		Item item = new Item();
-		item.setItemId(null);
-		item.setItemDescription(obj.getString("item_desc"));
-		item.setUnitCost(Double.valueOf(obj.getString("unit_cost")));
-		item.setCurrencyCode(obj.getString("currency"));
+		ObjectMapper mapper = new ObjectMapper();
+		Item item = null;
+		try {
+			item = mapper.readValue(json, new TypeReference<Item>(){});
+		} catch(Exception e) {
+			e.printStackTrace();
+			return Response.status(Response.Status.NOT_FOUND).build();
+		}
+		
 		Item result = item_.saveItem(item);
 		if (result == null) {
 			return Response.status(Response.Status.NOT_FOUND).build();
@@ -78,5 +84,18 @@ public class ItemServiceEndPoint implements ItemService {
 	public Response updateItem(String json) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@GET
+	@Path("/findallitem")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public Response findAllItem() {
+		List list = item_.findAllItem();
+		if (list == null) {
+			return Response.status(Response.Status.NOT_FOUND).entity("Entity not found").build();
+		}
+
+		Response response = Response.status(Response.Status.OK).entity(list).build();
+		return response;
 	}
 }

@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<title>Item Detail : Item 100</title>
+<p:outputLabel value="Details for Item with id : 100"></p:outputLabel>
+<h:form>
+	<p:panelGrid columns="2">
+		<h:outputLabel value="Item Description:"></h:outputLabel>
+		<h:outputText value="#{adminController.item.itemDescription}"></h:outputText>
+
+		<h:outputLabel value="Unit Cost:"></h:outputLabel>
+		<h:outputText value="#{adminController.item.unitCost}"></h:outputText>
+
+		<h:outputLabel value="Currency:"></h:outputLabel>
+		<h:outputText value="#{adminController.item.currencyCode}"></h:outputText>
+
+	</p:panelGrid>
+
+</h:form>
+</html>

@@ -15,4 +15,6 @@ public interface ItemService {
 	public Response updateItem(String json);
 
 	public Response findItemById(String id);
+	
+	public Response findAllItem();
 }
