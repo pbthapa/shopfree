@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      	xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<title>Retailers</title>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet"></link>
+</h:head> 
+<body> 
+
+<p:growl id="msgs" showDetail="true" />
+ 
+    <p:panel id="basic" header="Retailer Information Entry" style="margin-bottom:20px">
+        <h:form>
+			<p:panelGrid columns="2" cellpadding="10">
+				<h:outputLabel value="Retailer Name"></h:outputLabel>
+				<h:inputText value="#{retailerController.retailer.retailerName}" />
+		
+				<h:outputLabel value="Address"></h:outputLabel>
+				<h:inputText value="#{retailerController.retailer.address}" />
+		
+				<h:outputLabel value="Phone number:"></h:outputLabel>
+				<h:inputText value="#{retailerController.retailer.phoneNum}" />
+			</p:panelGrid>
+			<br/>
+			<br/>
+		
+			<h:commandButton id="addRetailerBtn" action="#{retailerController.saveRetailerInfo}"
+				value="Save"></h:commandButton>
+		</h:form>
+
+    </p:panel>
+    <br/>
+    <br />
+    
+    <p:panel id="basic1" header="Retailer List" style="margin-bottom:20px">
+
+		<h:form>
+			<p:dataTable var="retailer" value="#{retailerController.retailerDataTable}">
+				<p:column headerText="Retailer Id">
+					<h:outputText value="#{retailer.retailerId}" />
+				</p:column>
+		
+				<p:column headerText="Retailer Name">
+					<h:outputText value="#{retailer.retailerName}" />
+				</p:column>
+		
+				<p:column headerText="Address">
+					<h:outputText value="#{retailer.address}" />
+				</p:column>
+		
+				<p:column headerText="Phone No.">
+					<h:outputText value="#{retailer.phoneNum}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</p:panel>
+
+</body> 
+</html>

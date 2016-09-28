@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<title>Item List</title>
+<p:outputLabel value="Item Data List"></p:outputLabel>
+<h:form>
+	<p:dataTable var="item" value="#{adminController.itemDataTable}">
+		<p:column headerText="Item No.">
+			<h:outputText value="ITEM-#{item.itemId}" />
+		</p:column>
+
+		<p:column headerText="Item Description">
+			<h:outputText value="#{item.itemDescription}" />
+		</p:column>
+
+		<p:column headerText="Unit Cost">
+			<h:outputText value="#{item.unitCost}" />
+		</p:column>
+
+		<p:column headerText="Currency">
+			<h:outputText value="#{item.currencyCode}" />
+		</p:column>
+	</p:dataTable>
+</h:form>
+</html>
